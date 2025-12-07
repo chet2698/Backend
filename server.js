@@ -8,6 +8,7 @@ const url = process.env.MONGODB_URI;
 
 const routes = require('./Routes');
 const loginRoutes = require('./Routes/UserRoutes');
+const AdminRoutes = require('./Routes/AdminRoutes');
 
 // CORS middleware
 app.use((req, res, next) => {
@@ -20,8 +21,9 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use('/api', routes);
 app.use('/api/auth', loginRoutes);
+app.use('/api/admin', AdminRoutes);
 
-mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(url)
     .then(() => {
         console.log("Connected to MongoDB");
     })
