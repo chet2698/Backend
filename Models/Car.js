@@ -11,6 +11,7 @@ const carSchema = new mongoose.Schema({
         fuelType:String,
         transmission:String,
         location:String,
+        description:String,
     // Add more fields as needed
 });
 
